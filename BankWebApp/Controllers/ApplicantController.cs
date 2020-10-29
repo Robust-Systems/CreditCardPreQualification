@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BankWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using BankWebApp.Models;
+using System;
 
 namespace BankWebApp.Controllers
 {
-    public class ApplicantController : Controller
+  public class ApplicantController : Controller
     {
 
         public ApplicantController()
@@ -23,15 +18,25 @@ namespace BankWebApp.Controllers
             return View();
         }
 
+        // POST: Applicant/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([FromBody] ApplicantModel applicantModel)
+        public IActionResult Create(ApplicantModel applicantModel)
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                // _service.ProcessApplicant(firstName... DoB);
+                //return RedirectToAction(nameof(Index));
+                return View("Details", applicantModel);
             }
+
             return View(applicantModel);
+        }
+
+        // GET: Applicant/Create
+        public IActionResult Details(ApplicantModel applicantModel)
+        {
+            return View();
         }
     }
 }
