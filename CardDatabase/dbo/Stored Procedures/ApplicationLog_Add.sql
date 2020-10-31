@@ -5,7 +5,7 @@
 -- =============================================
 CREATE PROCEDURE [dbo].[ApplicationLog_Add] 
 	@FirstName			AS VARCHAR(100),
-	@LastName			AS VARCHAR(100),
+	@LastName				AS VARCHAR(100),
 	@DateOfBirth		AS DATE,
 	@AnnualIncome		AS INT,
 	@CreditCardID		AS INT

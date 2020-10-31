@@ -14,7 +14,7 @@ BEGIN
 		LastName,
 		DateOfBirth,
 		AnnualIncome,
-		EligibleCreditCard,
+		CreditCardID,
 		DateApplied
 	FROM ApplicationLog
 
