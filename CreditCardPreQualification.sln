@@ -7,7 +7,9 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CardDatabase", "CardDatabas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCardAPI", "CreditCardAPI\CreditCardAPI.csproj", "{70E90F9C-2282-40D8-B866-D0270C12F2A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankWebApp", "BankWebApp\BankWebApp.csproj", "{B516E7E0-6367-41CA-8123-5C9FE5137EBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankWebApp", "BankWebApp\BankWebApp.csproj", "{B516E7E0-6367-41CA-8123-5C9FE5137EBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLogic", "DataLogic\DataLogic.csproj", "{EDE7E427-59C3-4BD7-AEAF-9EA4DFD4F8BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{B516E7E0-6367-41CA-8123-5C9FE5137EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B516E7E0-6367-41CA-8123-5C9FE5137EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B516E7E0-6367-41CA-8123-5C9FE5137EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDE7E427-59C3-4BD7-AEAF-9EA4DFD4F8BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDE7E427-59C3-4BD7-AEAF-9EA4DFD4F8BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDE7E427-59C3-4BD7-AEAF-9EA4DFD4F8BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDE7E427-59C3-4BD7-AEAF-9EA4DFD4F8BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
