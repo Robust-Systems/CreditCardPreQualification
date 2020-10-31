@@ -1,14 +1,14 @@
 ﻿-- =============================================
 -- Author:		Iftikhar Siddique
 -- Create date: 29th October 2020
--- Description:	Adds credit card applicantion to ApplicationLog.
+-- Description:	Adds credit card application to ApplicationLog.
 -- =============================================
 CREATE PROCEDURE [dbo].[ApplicationLog_Add] 
 	@FirstName			AS VARCHAR(100),
 	@LastName			AS VARCHAR(100),
 	@DateOfBirth		AS DATE,
 	@AnnualIncome		AS INT,
-	@EligibleCreditCard AS VARCHAR(50)
+	@CreditCardID		AS INT
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -19,7 +19,7 @@ BEGIN
 		LastName,
 		DateOfBirth,
 		AnnualIncome,
-		EligibleCreditCard
+		CreditCardID
 	) 
 	VALUES 
 	(
@@ -27,7 +27,7 @@ BEGIN
 		@LastName,
 		@DateOfBirth,
 		@AnnualIncome,
-		@EligibleCreditCard
+		@CreditCardID
 	) 
 
 END

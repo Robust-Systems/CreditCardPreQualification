@@ -73,5 +73,6 @@
     <Build Include="dbo\Stored Procedures\ApplicationLog_GetList.sql" />
     <Build Include="dbo\Stored Procedures\ApplicationLog_Add.sql" />
     <Build Include="Security\Permissions.sql" />
+    <Build Include="dbo\Stored Procedures\CreditCard_Get.sql" />
   </ItemGroup>
 </Project>
