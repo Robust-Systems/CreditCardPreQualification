@@ -2,8 +2,6 @@
 using DataLogic.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BankWebApp.Services
 {
@@ -17,6 +15,14 @@ namespace BankWebApp.Services
       _cardProcessor = new CardProcessor(connectionString);
 
       _applicantProcessor = new ApplicantProcessor(connectionString);
+    }
+
+    public CreditCard AddApplicant(string firstName, string lastName, DateTime dateOfBirth, int? annualIncome, out string errorMesage)
+    {
+      errorMesage = null;
+      var creditCard = _applicantProcessor.AddApplicant(firstName, lastName, dateOfBirth, annualIncome, out errorMesage);
+
+      return creditCard;
     }
 
     public CreditCard GetCreditCard(int creditCardID)

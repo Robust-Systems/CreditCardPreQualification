@@ -1,12 +1,9 @@
 ﻿using DataLogic.Helper;
 using DataLogic.Models;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 
 namespace DataLogic
 {
@@ -31,9 +28,10 @@ namespace DataLogic
 
           creditCard.CreditCardID = (int)reader[nameof(creditCard.CreditCardID)];
           creditCard.CardName = (string)reader[nameof(creditCard.CardName)];
-          creditCard.AgeRestriction = (int?)reader[nameof(creditCard.CreditCardID)];
-          creditCard.AnnualIncomeRestriction = (int?)reader[nameof(creditCard.AnnualIncomeRestriction)];
-          creditCard.APR = (decimal?)reader[nameof(creditCard.APR)];
+          creditCard.AgeRestriction = reader[nameof(creditCard.AgeRestriction)] as int? ?? null;
+          creditCard.AnnualIncomeRestriction = reader[nameof(creditCard.AnnualIncomeRestriction)] as int? ?? null;
+          creditCard.PromotionalMessage = (string)reader[nameof(creditCard.PromotionalMessage)];
+          creditCard.APR = reader[nameof(creditCard.APR)] as decimal? ?? null;
           creditCard.IsDefault = (bool)reader[nameof(creditCard.IsDefault)];
 
           creditCards.Add(creditCard);
@@ -64,10 +62,10 @@ namespace DataLogic
 
           creditCard.CreditCardID = (int)reader[nameof(creditCard.CreditCardID)];
           creditCard.CardName = (string)reader[nameof(creditCard.CardName)];
-          creditCard.AgeRestriction = (int?)reader[nameof(creditCard.CreditCardID)];
-          creditCard.AnnualIncomeRestriction = (int?)reader[nameof(creditCard.AnnualIncomeRestriction)];
-          creditCard.APR = (decimal?)reader[nameof(creditCard.APR)];
-          creditCard.IsDefault = (bool)reader[nameof(creditCard.IsDefault)];
+          creditCard.AgeRestriction = reader[nameof(creditCard.AgeRestriction)] as int? ?? null;
+          creditCard.AnnualIncomeRestriction = reader[nameof(creditCard.AnnualIncomeRestriction)] as int? ?? null;
+          creditCard.PromotionalMessage = (string)reader[nameof(creditCard.PromotionalMessage)];
+          creditCard.APR = reader[nameof(creditCard.APR)] as decimal? ?? null;
         }
       }
 

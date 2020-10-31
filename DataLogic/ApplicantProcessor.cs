@@ -2,8 +2,6 @@
 using DataLogic.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace DataLogic
 {
@@ -21,11 +19,11 @@ namespace DataLogic
       return new List<Applicant>();
     }
 
-    public bool AddApplicant(Applicant applicant)
+    public CreditCard AddApplicant(string firstName, string lastName, DateTime dateOfBirth, int? annualIncome, out string errorMesage)
     {
-
-
-      return true;
+      //Applicant applicant;
+      errorMesage = null;
+      return null;
     }
   }
 }
