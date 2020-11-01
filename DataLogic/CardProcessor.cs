@@ -37,6 +37,9 @@ namespace DataLogic
 
           creditCards.Add(creditCard);
         }
+
+        connection.Close();
+        reader.Close();
       }
 
       return creditCards;
@@ -69,6 +72,9 @@ namespace DataLogic
           creditCard.APR = reader[nameof(creditCard.APR)] as decimal? ?? null;
           creditCard.ImageFileName = (string)reader[nameof(creditCard.ImageFileName)];
         }
+
+        connection.Close();
+        reader.Close();
       }
 
       return creditCard;

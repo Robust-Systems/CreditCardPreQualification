@@ -17,5 +17,10 @@
     public string ImageFileName { get; set; }
 
     public bool IsDefault { get; set; }
+
+    public override string ToString()
+    {
+      return CardName;
+    }
   }
 }

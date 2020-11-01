@@ -48,6 +48,9 @@ namespace DataLogic
 
           applicant.EligibleCreditCard = creditCard;
         }
+
+        connection.Close();
+        reader.Close();
       }
 
       return applicant;
@@ -82,6 +85,9 @@ namespace DataLogic
 
           applicantList.Add(applicant);
         }
+
+        connection.Close();
+        reader.Close();
       }
 
       return applicantList;

@@ -1,7 +1,10 @@
 ﻿using BankWebApp.Models;
 using BankWebApp.Services;
+using DataLogic.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BankWebApp.Controllers
 {
@@ -17,19 +20,19 @@ namespace BankWebApp.Controllers
     // GET: Applicant/Create
     public IActionResult Create()
     {
-      var temp0 = _dataLogicService.GetCreditCards();
+      //var temp0 = _dataLogicService.GetCreditCards();
 
-      var temp1 = _dataLogicService.GetCreditCard(1);
+      //var temp1 = _dataLogicService.GetCreditCard(1);
 
-      var temp2 = _dataLogicService.GetDefaultCreditCard();
+      //var temp2 = _dataLogicService.GetDefaultCreditCard();
 
-      var temp3 = _dataLogicService.AddApplicant("James", "Bond", DateTime.Now.AddYears(-1 * DateTime.Now.Second), 250000);
-      var temp6 = _dataLogicService.AddApplicant("Sean", "Connery", DateTime.Now.AddYears(-1 * DateTime.Now.Second), 13000);
-      var temp7 = _dataLogicService.AddApplicant("Daniel", "Craig", DateTime.Now.AddYears(-1 * DateTime.Now.Second), null);
+      //var temp3 = _dataLogicService.AddApplicant("James", "Bond", DateTime.Now.AddYears(-1 * DateTime.Now.Second), 250000);
+      //var temp6 = _dataLogicService.AddApplicant("Sean", "Connery", DateTime.Now.AddYears(-1 * DateTime.Now.Second), 13000);
+      //var temp7 = _dataLogicService.AddApplicant("Daniel", "Craig", DateTime.Now.AddYears(-1 * DateTime.Now.Second), null);
 
-      var temp4 = _dataLogicService.GetApplicant(2);
+      //var temp4 = _dataLogicService.GetApplicant(2);
 
-      var temp5 = _dataLogicService.GetApplicants();
+      //var temp5 = _dataLogicService.GetApplicants();
 
       return View();
     }
@@ -53,10 +56,35 @@ namespace BankWebApp.Controllers
       return View(applicantModel);
     }
 
-    // GET: Applicant/Create
-    public IActionResult Details(ApplicantModel applicantModel)
+    // GET: Applicant/List
+    public IActionResult List()
     {
-      return View();
+      var applicants = _dataLogicService.GetApplicants();
+      List<ApplicantModel> applicantList = new List<ApplicantModel>();
+
+      foreach(var applicant in applicants)
+      {
+        applicantList.Add(MapApplicant(applicant));
+      }
+
+      return View(applicantList.OrderByDescending(a => a.DateApplied));
+    }
+
+    private ApplicantModel MapApplicant(Applicant applicant)
+    {
+      var applicantModel = new ApplicantModel()
+      {
+        ApplicationLogID = applicant.ApplicationLogID,
+        FirstName = applicant.FirstName,
+        LastName = applicant.LastName,
+        DateOfBirth = applicant.DateOfBirth,
+        AnnualIncome = applicant.AnnualIncome,
+        DateApplied = applicant.DateApplied
+      };
+
+      applicantModel.EligibleCreditCard = applicant.EligibleCreditCard?.ToString() ?? "Not Qualified";
+
+      return applicantModel;
     }
   }
 }

@@ -8,10 +8,7 @@ namespace BankWebApp.Models
 {
   public class ApplicantModel
   {
-    public ApplicantModel()
-    {
-
-    }
+    public int ApplicationLogID { get; set; }
 
     public string FirstName { get; set; }
     
@@ -20,7 +17,10 @@ namespace BankWebApp.Models
     [DataType(DataType.Date)]
     public DateTime DateOfBirth { get; set; }
 
-    public int AnnualIncome { get; set; }
+    public int? AnnualIncome { get; set; }
 
+    public string EligibleCreditCard { get; set; }
+
+    public DateTime DateApplied { get; set; }
   }
 }
