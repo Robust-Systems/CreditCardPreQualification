@@ -41,7 +41,7 @@ namespace BankWebApp.Controllers
         };
       }
 
-      return View();
+      return View(cardModel);
     }
 
     // GET: CardController/Details/5

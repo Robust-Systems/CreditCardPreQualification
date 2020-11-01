@@ -1,0 +1,31 @@
+﻿@model BankWebApp.Models.CardModel
+
+@{
+  ViewData["Title"] = "Applicant Result";
+  var creditCardOffered = !(Model is null);
+}
+
+<h1>Applicant Result</h1>
+
+<div>
+  @if (creditCardOffered)
+  {
+  <h4>@{@Model.CardName} (<b>APR @{@Model.APR.Value.ToString("0.####")}</b>)</h4>
+  }
+  <hr />
+  @if (creditCardOffered)
+  {
+    <p><b>APR @{@Model.PromotionalMessage}</b></p>
+    <p><b>APR @{@Model.PromotionalMessage}</b></p>
+  }
+  else
+  {
+    <p><b>No credit cards are available.</b></p>
+  }
+</div>
+
+
+<div>
+  @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+  <a asp-action="Index">Back to List</a>
+</div>

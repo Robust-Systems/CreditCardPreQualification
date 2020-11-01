@@ -47,11 +47,7 @@ namespace BankWebApp.Controllers
                                                             applicantModel.DateOfBirth, 
                                                             applicantModel.AnnualIncome);
 
-        var applicant = _dataLogicService.GetApplicant(applicantLogID);
-
-        
-
-        return View("EligibleCard", cardModel);
+        return RedirectToAction("ApplicantResult", "Card", new { applicationLogID = applicantLogID });
       }
 
       return View(applicantModel);

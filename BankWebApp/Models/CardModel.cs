@@ -1,4 +1,6 @@
-﻿namespace BankWebApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BankWebApp.Models
 {
   public class CardModel
   {
