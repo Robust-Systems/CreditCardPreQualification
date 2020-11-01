@@ -15,6 +15,7 @@ BEGIN
 		C.AnnualIncomeRestriction,
 		C.PromotionalMessage,
 		C.APR,
+		C.ImageFileName,
 		IsDefault = CAST(ISNULL(D.CreditCardID, 0) AS BIT)
 	FROM CreditCard C LEFT OUTER JOIN DefaultCreditCard D ON C.CreditCardID = D.CreditCardID
 

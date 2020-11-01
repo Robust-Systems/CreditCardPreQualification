@@ -14,6 +14,8 @@
 
     public decimal? APR { get; set; }
 
+    public string ImageFileName { get; set; }
+
     public bool IsDefault { get; set; }
   }
 }

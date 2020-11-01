@@ -32,6 +32,7 @@ namespace DataLogic
           creditCard.AnnualIncomeRestriction = reader[nameof(creditCard.AnnualIncomeRestriction)] as int? ?? null;
           creditCard.PromotionalMessage = (string)reader[nameof(creditCard.PromotionalMessage)];
           creditCard.APR = reader[nameof(creditCard.APR)] as decimal? ?? null;
+          creditCard.ImageFileName = (string)reader[nameof(creditCard.ImageFileName)];
           creditCard.IsDefault = (bool)reader[nameof(creditCard.IsDefault)];
 
           creditCards.Add(creditCard);
@@ -66,6 +67,7 @@ namespace DataLogic
           creditCard.AnnualIncomeRestriction = reader[nameof(creditCard.AnnualIncomeRestriction)] as int? ?? null;
           creditCard.PromotionalMessage = (string)reader[nameof(creditCard.PromotionalMessage)];
           creditCard.APR = reader[nameof(creditCard.APR)] as decimal? ?? null;
+          creditCard.ImageFileName = (string)reader[nameof(creditCard.ImageFileName)];
         }
       }
 

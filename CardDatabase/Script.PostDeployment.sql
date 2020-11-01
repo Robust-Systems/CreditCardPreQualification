@@ -34,7 +34,7 @@ WHEN MATCHED AND (EXISTS (SELECT tgt.CardName EXCEPT SELECT src.CardName) OR
 									EXISTS (SELECT tgt.AnnualIncomeRestriction EXCEPT SELECT src.AnnualIncomeRestriction) OR
 									EXISTS (SELECT tgt.PromotionalMessage EXCEPT SELECT src.PromotionalMessage) OR
 									EXISTS (SELECT tgt.APR EXCEPT SELECT src.APR) OR
-									EXISTS (SELECT tgt.APR EXCEPT SELECT src.APR)
+									EXISTS (SELECT tgt.ImageFileName EXCEPT SELECT src.ImageFileName)
                   ) 
 	THEN UPDATE SET 
 	     tgt.CardName = src.CardName, 

@@ -10,12 +10,6 @@ namespace BankWebApp.Models
 
     public decimal? APR { get; set; }
 
-    public string CardImageSrc 
-    { 
-      get 
-      { 
-        return $"~/images/{CardName}.png"; 
-      } 
-    }
+    public string CardImageSrc { get; set; }
   }
 }

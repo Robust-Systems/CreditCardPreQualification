@@ -37,7 +37,8 @@ namespace BankWebApp.Controllers
         {
           CardName = creditCard.CardName,
           PromotionalMessage = creditCard.PromotionalMessage,
-          APR = creditCard.APR
+          APR = creditCard.APR,
+          CardImageSrc = creditCard.ImageFileName
         };
       }
 

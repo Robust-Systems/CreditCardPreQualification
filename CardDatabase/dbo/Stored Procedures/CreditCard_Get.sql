@@ -15,7 +15,8 @@ BEGIN
 		C.AgeRestriction,
 		C.AnnualIncomeRestriction,
 		C.PromotionalMessage,
-		C.APR
+		C.APR,
+		C.ImageFileName
 	FROM CreditCard C 
 	WHERE
 		C.CreditCardID = @CreditCardID

@@ -3,6 +3,7 @@
 @{
   ViewData["Title"] = "Applicant Result";
   var creditCardOffered = !(Model is null);
+  var imgPath = $"/images/{Model?.CardImageSrc}";
 }
 
 <h1>Applicant Result</h1>
@@ -16,7 +17,7 @@
   @if (creditCardOffered)
   {
     <p><b>@{@Model.PromotionalMessage}</b></p>
-    <p><img src="@Url.Content(Model.CardImageSrc)" alt="Image" /></p>
+    <p><img src="@Url.Content(imgPath)" alt="Image" /></p>
   }
   else
   {
