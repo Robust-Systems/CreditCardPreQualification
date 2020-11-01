@@ -76,4 +76,7 @@
     <Build Include="dbo\Stored Procedures\CreditCard_Get.sql" />
     <Build Include="dbo\Stored Procedures\ApplicationLog_Get.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
+  </ItemGroup>
 </Project>

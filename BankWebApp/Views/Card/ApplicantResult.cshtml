@@ -15,8 +15,8 @@
   <hr />
   @if (creditCardOffered)
   {
-    <p><b>APR @{@Model.PromotionalMessage}</b></p>
-    <p><b>APR @{@Model.PromotionalMessage}</b></p>
+    <p><b>@{@Model.PromotionalMessage}</b></p>
+    <p><img src="@Url.Content(Model.CardImageSrc)" alt="Image" /></p>
   }
   else
   {
