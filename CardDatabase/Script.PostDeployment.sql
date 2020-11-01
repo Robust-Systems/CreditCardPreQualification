@@ -28,19 +28,21 @@ INSERT INTO @CreditCard VALUES (2, 'Vanquis Visa Classic', 18, NULL, 'Start buil
 
 MERGE CreditCard AS tgt
 USING @CreditCard AS src ON (tgt.CreditCardID = src.CreditCardID) 
---When records are matched, update the records if there is any change
-WHEN MATCHED AND (EXISTS (SELECT tgt.CardName EXCEPT SELECT src.CardName)) 
-	THEN UPDATE SET tgt.CardName = src.CardName, tgt.CardName = src.CardName 
-WHEN MATCHED AND (EXISTS (SELECT tgt.AgeRestriction EXCEPT SELECT src.AgeRestriction)) 
-	THEN UPDATE SET tgt.AgeRestriction = src.AgeRestriction
-WHEN MATCHED AND (EXISTS (SELECT tgt.AgeRestriction EXCEPT SELECT src.AgeRestriction)) 
-	THEN UPDATE SET tgt.AnnualIncomeRestriction = src.AnnualIncomeRestriction
-WHEN MATCHED AND (EXISTS (SELECT tgt.AgeRestriction EXCEPT SELECT src.AgeRestriction)) 
-	THEN UPDATE SET tgt.PromotionalMessage = src.PromotionalMessage
-WHEN MATCHED AND (EXISTS (SELECT tgt.APR EXCEPT SELECT src.APR)) 
-	THEN UPDATE SET tgt.APR = src.APR
-WHEN MATCHED AND (EXISTS (SELECT tgt.ImageFileName EXCEPT SELECT src.ImageFileName)) 
-	THEN UPDATE SET tgt.ImageFileName = src.ImageFileName
+--When records are matched, update the records if there is any change including NULLs
+WHEN MATCHED AND (EXISTS (SELECT tgt.CardName EXCEPT SELECT src.CardName) OR
+                  EXISTS (SELECT tgt.AgeRestriction EXCEPT SELECT src.AgeRestriction) OR
+									EXISTS (SELECT tgt.AnnualIncomeRestriction EXCEPT SELECT src.AnnualIncomeRestriction) OR
+									EXISTS (SELECT tgt.PromotionalMessage EXCEPT SELECT src.PromotionalMessage) OR
+									EXISTS (SELECT tgt.APR EXCEPT SELECT src.APR) OR
+									EXISTS (SELECT tgt.APR EXCEPT SELECT src.APR)
+                  ) 
+	THEN UPDATE SET 
+	     tgt.CardName = src.CardName, 
+			 tgt.AgeRestriction = src.AgeRestriction, 
+			 tgt.AnnualIncomeRestriction = src.AnnualIncomeRestriction, 
+			 tgt.PromotionalMessage = src.PromotionalMessage, 
+			 tgt.APR = src.APR, 
+			 tgt.ImageFileName = src.ImageFileName
 --When no records are matched, insert the incoming records from source table to target table
 WHEN NOT MATCHED BY TARGET
 	THEN INSERT (CreditCardID, CardName, AgeRestriction, AnnualIncomeRestriction, PromotionalMessage, APR, ImageFileName) VALUES 
@@ -48,3 +50,10 @@ WHEN NOT MATCHED BY TARGET
 --When there is a row that exists in target and same record does not exist in source then delete this record target
 WHEN NOT MATCHED BY SOURCE
 THEN DELETE;
+
+-- set default credit card
+IF NOT EXISTS (SELECT * FROM DefaultCreditCard)
+BEGIN
+	INSERT INTO DefaultCreditCard VALUES ('X', 2)
+END
+
