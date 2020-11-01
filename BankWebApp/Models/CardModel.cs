@@ -6,7 +6,7 @@
 
     public string PromotionalMessage { get; set; }
 
-    public decimal APR { get; set; }
+    public decimal? APR { get; set; }
 
     public string CardImageSrc 
     { 

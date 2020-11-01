@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BankWebApp.Models;
+using BankWebApp.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +11,36 @@ namespace BankWebApp.Controllers
 {
   public class CardController : Controller
   {
+    readonly IDataLogicService _dataLogicService;
+
+    public CardController(IDataLogicService dataLogicService)
+    {
+      _dataLogicService = dataLogicService;
+    }
+
     // GET: CardController
     public ActionResult Index()
     {
+      return View();
+    }
+
+    public ActionResult ApplicantResult(int applicationLogID)
+    {
+      var applicant = _dataLogicService.GetApplicant(applicationLogID);
+
+      var creditCard = applicant.EligibleCreditCard;
+      CardModel cardModel = null;
+
+      if(!(creditCard is null))
+      {
+        cardModel = new CardModel()
+        {
+          CardName = creditCard.CardName,
+          PromotionalMessage = creditCard.PromotionalMessage,
+          APR = creditCard.APR
+        };
+      }
+
       return View();
     }
 

@@ -42,17 +42,14 @@ namespace BankWebApp.Controllers
 
       if (ModelState.IsValid)
       {
-        // _service.ProcessApplicant(firstName... DoB);
-        //return RedirectToAction(nameof(Index));
+        var applicantLogID = _dataLogicService.AddApplicant(applicantModel.FirstName, 
+                                                            applicantModel.LastName, 
+                                                            applicantModel.DateOfBirth, 
+                                                            applicantModel.AnnualIncome);
 
-        //return View("Details", applicantModel);
+        var applicant = _dataLogicService.GetApplicant(applicantLogID);
 
-        var cardModel = new CardModel
-        {
-          CardName = "Barclaycard",
-          APR = 19.5M,
-          PromotionalMessage = "Welcome to Barclaycard!"
-        };
+        
 
         return View("EligibleCard", cardModel);
       }
