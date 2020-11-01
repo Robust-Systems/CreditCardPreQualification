@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<BankWebApp.Models.ApplicantModel>
 
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "Application History";
 }
 
-<h1>List</h1>
+<h2>Application History</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -33,7 +30,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateApplied)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -59,11 +55,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateApplied)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }
