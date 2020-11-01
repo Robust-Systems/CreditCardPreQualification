@@ -17,12 +17,19 @@ namespace BankWebApp.Services
       _applicantProcessor = new ApplicantProcessor(connectionString);
     }
 
-    public CreditCard AddApplicant(string firstName, string lastName, DateTime dateOfBirth, int? annualIncome, out string errorMesage)
-    {
-      errorMesage = null;
-      var creditCard = _applicantProcessor.AddApplicant(firstName, lastName, dateOfBirth, annualIncome, out errorMesage);
+    public int AddApplicant(string firstName, string lastName, DateTime dateOfBirth, int? annualIncome)
+    {      
+      return _applicantProcessor.AddApplicant(firstName, lastName, dateOfBirth, annualIncome);
+    }
 
-      return creditCard;
+    public Applicant GetApplicant(int applicationLogID)
+    {
+      return _applicantProcessor.GetApplicant(applicationLogID);
+    }
+
+    public IEnumerable<Applicant> GetApplicants()
+    {
+      return _applicantProcessor.GetApplicants();
     }
 
     public CreditCard GetCreditCard(int creditCardID)

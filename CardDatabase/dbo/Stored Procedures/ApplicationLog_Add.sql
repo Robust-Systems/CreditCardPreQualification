@@ -30,6 +30,8 @@ BEGIN
 		@CreditCardID
 	) 
 
+	SELECT ApplicationLogID = CAST(SCOPE_IDENTITY() AS INT)
+
 END
 
 GO

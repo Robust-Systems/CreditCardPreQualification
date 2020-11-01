@@ -1,6 +1,7 @@
 ﻿using BankWebApp.Models;
 using BankWebApp.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BankWebApp.Controllers
 {
@@ -21,6 +22,14 @@ namespace BankWebApp.Controllers
       var temp1 = _dataLogicService.GetCreditCard(1);
 
       var temp2 = _dataLogicService.GetDefaultCreditCard();
+
+      var temp3 = _dataLogicService.AddApplicant("James", "Bond", DateTime.Now.AddYears(-1 * DateTime.Now.Second), 250000);
+      var temp6 = _dataLogicService.AddApplicant("Sean", "Connery", DateTime.Now.AddYears(-1 * DateTime.Now.Second), 13000);
+      var temp7 = _dataLogicService.AddApplicant("Daniel", "Craig", DateTime.Now.AddYears(-1 * DateTime.Now.Second), null);
+
+      var temp4 = _dataLogicService.GetApplicant(2);
+
+      var temp5 = _dataLogicService.GetApplicants();
 
       return View();
     }
